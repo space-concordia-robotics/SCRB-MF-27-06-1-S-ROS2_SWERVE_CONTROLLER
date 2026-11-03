@@ -6,6 +6,7 @@ Repository for the development of the drive train ROS2 control controller. This 
 graph TD;
   joy_input["`Any Joystick
   Hardware`"]
+  joy_node["`Joy_Node`"]
   joy["`\joy
   sensor_msgs/msg/Joy`"]
   joy_demux["`joy_demux_node`"]
@@ -20,8 +21,8 @@ graph TD;
   sensors[Sensor Data]
   actuators[Actuator Command]
   
-  
-  joy_input --> joy
+  joy_input --> joy_node
+  joy_node --> joy
   joy --> joy_demux
   joy_demux --> cmd_vel
   cmd_vel --> controller
