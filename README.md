@@ -9,6 +9,8 @@ graph TD;
   joy_node["`Joy_Node`"]
   joy["`\joy
   sensor_msgs/msg/Joy`"]
+  controller_config["`Configuration File
+  for Connected Controller`"]
   joy_demux["`joy_demux_node`"]
   cmd_vel["`\cmd_vel
   geometry_msgs/msg/Twist`"]
@@ -20,10 +22,12 @@ graph TD;
   Control Area Network Communication Protocol`"]
   sensors[Sensor Data]
   actuators[Actuator Command]
-  
+
+  controller_config --> joy_demux
   joy_input --> joy_node
   joy_node --> joy
   joy --> joy_demux
+  
   joy_demux --> cmd_vel
   cmd_vel --> controller
   controller <--> interface
